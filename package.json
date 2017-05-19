@@ -1,0 +1,13 @@
+{
+  "name": "muber",
+  "version": "1.0.0",
+  "description": "an api clone of uber",
+  "main": "index.js",
+  "author": "\"Camilo Guerrero\"",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mocha": "^3.4.1",
+    "mongoose": "^4.10.0"
+  }
+}
