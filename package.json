@@ -6,6 +6,7 @@
   "author": "\"Camilo Guerrero\"",
   "license": "MIT",
   "dependencies": {
+    "eslint": "^3.19.0",
     "express": "^4.15.3",
     "mocha": "^3.4.1",
     "mongoose": "^4.10.0"
