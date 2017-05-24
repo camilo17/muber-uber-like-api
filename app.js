@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express(); 
 
 mongoose.Promise = global.Promise; 
-if(!proces.env.NODE_ENV !== 'test') {
+if(!process.env.NODE_ENV !== 'test') {
     mongoose.connect('mongodb://localhost/muber'); 
 }
 
@@ -14,7 +14,7 @@ if(!proces.env.NODE_ENV !== 'test') {
 app.use(bodyParser.json()); 
 
 app.use((err, req, res, next) => {       //err will be populated if the previous middleware returned an error
-        res.send({error: err.message}); 
+        res.status(422).send({error: err.message}); 
 });
 
 
