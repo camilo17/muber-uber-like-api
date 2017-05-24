@@ -10,7 +10,7 @@ module.exports = {
         Driver.geoNear(
             {
                 type: 'Point',
-                coordinates: [lng, lat]
+                coordinates: [parseFloat(lng), parseFloat(lat)] //when express parses the query string it returns a string, not a number
             },
             {
                 spherical: true,

@@ -66,7 +66,7 @@ describe('Drivers controller', () => {
             email: 'seattle@test.com',
             geometry: {
                 type: 'Point',
-                coodinates: [-122.4759902, 47.6147628]
+                coordinates: [-122.4759902, 47.6147628]
             }
         });
 
@@ -74,7 +74,7 @@ describe('Drivers controller', () => {
             email: 'miami@test.com',
             geometry: {
                 type: 'Point',
-                coodinates: [-80.253, 25.791]
+                coordinates: [-80.2534507, 25.791581]
             }
         });
 
@@ -83,7 +83,8 @@ describe('Drivers controller', () => {
                 request(app)
                     .get('/api/drivers?lng=-80&lat=25')
                     .end((err, response) => {
-                        console.log(response);
+                        assert(response.body.length === 1);
+                        assert(response.body[0].obj.email === 'miami@test.com')
                         done(); 
                     })
             })
