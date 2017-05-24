@@ -13,6 +13,10 @@ if(!proces.env.NODE_ENV !== 'test') {
 
 app.use(bodyParser.json()); 
 
+app.use((err, req, res, next) => {       //err will be populated if the previous middleware returned an error
+        res.send({error: err.message}); 
+});
+
 
 
 routes(app); 
