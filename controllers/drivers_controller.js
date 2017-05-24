@@ -4,6 +4,23 @@ module.exports = {
     greeting(req, res) {
         res.send({hi: 'there'})
     },
+    index(req, res, next) {
+        const { lng, lat } = req.query; //express parses the query string for us
+
+        Driver.geoNear(
+            {
+                type: 'Point',
+                coordinates: [lng, lat]
+            },
+            {
+                spherical: true,
+                maxDistance: 200000         //200 kilometers or 200000 meters
+            }
+        )
+            .then(drivers => res.send(driveres))
+            .catch(next); 
+
+    },
     create(req, res, next) {
         console.log(req.body); 
         const driverProps = req.body;
