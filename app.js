@@ -6,7 +6,10 @@ const mongoose = require('mongoose');
 const app = express(); 
 
 mongoose.Promise = global.Promise; 
-mongoose.connect('mongodb://localhost/muber'); 
+if(!proces.env.NODE_ENV !== 'test') {
+    mongoose.connect('mongodb://localhost/muber'); 
+}
+
 
 app.use(bodyParser.json()); 
 
